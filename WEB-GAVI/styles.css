@@ -1,0 +1,796 @@
+/* Estilos Globales */
+:root {
+    --color-primario: #0066cc;
+    --color-secundario: #333;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333;
+    --color-blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de Color */
+:root {
+    --color-overlay-bg: rgba(0, 0, 0, 0.7);
+    --color-overlay-text: #ffffff;
+    --transition-speed: 1s;
+}
+
+/* PARTE DEL NAVBAR */
+
+.navbar {
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del logo */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ff0000;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    gap: 0.4rem;
+    margin-left: 10px
+}
+
+.logo-container:hover {
+    opacity: 0.9;
+}
+
+.logo-separator {
+    width: 3px;
+    height: 30px;
+    background-color: #860000cd;
+    margin: 0;
+}
+
+.nav-logo {
+    height: 60px;
+    max-height: 100%;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+}
+
+/* Menú de navegación */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #3b82f6;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #333;
+    font-weight: 400;
+}
+
+/* Iconos extras (carrito y usuario) */
+
+.nav-extras {
+    display: flex;
+    gap: 15px;
+    margin-right: 10px;
+}
+
+.nav-extras a {
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-extras a:hover {
+    color: #3b82f6;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu > li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-menu > li > a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu > li > a:hover {
+    color: var(--color-primario);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--color-blanco);
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 10px 15px;
+}
+
+.nav-extras a {
+    margin-left: 15px;
+    color: var(--color-secundario);
+    font-size: 1.2rem;
+}
+
+
+/* MUESTREO DE CARROS PARA LA PARTE DE HOME - MEJORADO */
+.vehicle-showcase {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.vehicle-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de 'cover' a 'contain' para mostrar el vehículo completo */
+    background-color: #f0f0f0; /* Fondo neutro para las imágenes */
+    z-index: 1;
+}
+
+.vehicle-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Control de navegación para los slides */
+.slide-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slide-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-dot.active {
+    background-color: var(--color-primario);
+    transform: scale(1.2);
+}
+
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.slide-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slide-arrow.prev {
+    left: 20px;
+}
+
+.slide-arrow.next {
+    right: 20px;
+}
+
+.vehicle-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-overlay-bg);
+    color: var(--color-overlay-text);
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 3;
+    max-width: 80%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.vehicle-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .vehicle-showcase {
+        height: 50vh;
+    }
+
+    .vehicle-overlay {
+        padding: 15px 20px;
+        bottom: 15%;
+    }
+
+    .vehicle-overlay h3 {
+        font-size: 1.5rem;
+    }
+
+    .vehicle-overlay p {
+        font-size: 0.9rem;
+    }
+    
+    .slide-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+
+/* PARTE DE MUESTREO CON LAS MARCAS QUE SE TRABAJA - MEJORADO */
+
+.brand-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primario), #003366);
+}
+
+.brand-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brand-container h2 {
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.brand-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-primario);
+}
+
+/* Animation container */
+.con-animate {
+    position: relative;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.con-animate > div {
+    display: flex;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    align-items: center;
+}
+
+/* Brand logo styling */
+.brand-logo {
+    flex: 0 0 auto;
+    padding: 0 30px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.1);
+}
+
+.brand-logo img {
+    max-height: 70px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.brand-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Animation classes */
+.con-animate > .animate1 {
+    position: absolute;
+    left: 0px;
+    animation: animate1 linear 25s infinite; /* Más lento y suave */
+    transform: translate(0);
+}
+
+.con-animate > .animate2 {
+    position: absolute;
+    left: 0px;
+    animation: animate2 linear 25s infinite; /* Más lento y suave */
+    transform: translate(0);
+}
+
+/* Keyframes for the animations */
+@keyframes animate1 {
+    0% {transform:translate(0%)}
+    100% {transform:translate(-100%)}
+}
+
+@keyframes animate2 {
+    0% {transform:translate(100%)}
+    100% {transform:translate(0%)}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .brand-section {
+        padding: 40px 0;
+    }
+    
+    .brand-logo {
+        padding: 0 15px;
+    }
+    
+    .brand-logo img {
+        max-height: 50px;
+    }
+    
+    .con-animate {
+        height: 100px;
+    }
+}
+
+/* Categorías de Autopartes */
+.autoparts-categories {
+    background-color: var(--color-fondo);
+    padding: 70px 0;
+    position: relative;
+}
+
+.autoparts-categories::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/autoparts-bg.jpg'); /* Imagen de fondo sutil */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05; /* Muy sutil para no interferir con el contenido */
+    z-index: 0;
+}
+
+.categories-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.categories-container h2 {
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-secundario);
+    position: relative;
+    display: inline-block;
+}
+
+.categories-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-primario);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-item {
+    background-color: var(--color-blanco);
+    text-align: center;
+    padding: 0; /* Eliminamos el padding para la imagen de fondo */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+    height: 280px; /* Altura fija para todas las categorías */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.category-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.category-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Overlay oscuro para mejorar legibilidad del texto */
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.category-item:hover::before {
+    background-color: rgba(0,0,0,0.3); /* Más claro al hacer hover */
+}
+
+/* Fondos de categorías (reemplazar con tus imágenes) */
+.category-item.carroceria {
+    background-image: url('../images/carroceria.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.parachoque {
+    background-image: url('../images/parachoque.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.filtros {
+    background-image: url('../images/filtros.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.frenos {
+    background-image: url('../images/Frenos.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.iluminacion {
+    background-image: url('../images/iluminacion.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.aros {
+    background-image: url('../images/aros.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-item.tanque {
+    background-image: url('../images/Tanques.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.category-item.lubricantes {
+    background-image: url('../images/lubricantes.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.category-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover .category-content {
+    transform: translateY(-10px);
+}
+
+.category-item i {
+    font-size: 3.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover i {
+    transform: scale(1.2);
+}
+
+.category-item h3 {
+    margin: 10px 0;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.category-item p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.category-item .btn-ver-mas {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.category-item:hover .btn-ver-mas {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .autoparts-categories {
+        padding: 50px 0;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .category-item {
+        height: 220px;
+    }
+    
+    .category-item i {
+        font-size: 2.5rem;
+    }
+    
+    .category-item h3 {
+        font-size: 1.3rem;
+    }
+} 
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 50px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    width: 22%;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--color-primario);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container,
+    .showcase-container,
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu,
+    .showcase-item,
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .brand-logos {
+        flex-direction: column;
+    }
+
+    .brand-logo {
+        margin: 10px 0;
+    }
+}
