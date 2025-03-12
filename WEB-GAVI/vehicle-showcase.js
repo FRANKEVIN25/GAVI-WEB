@@ -1,34 +1,64 @@
+car_models = ["C35_Crew_Van_2012", "Fengguang_580_2019",
+              "Fengxing_S560_2021", "Forthing_T5_2022",
+              "Forthing_T5_EVO_2024"]
+
+const car_brands = [["DFSK", "GLORY C35 - C37"],
+                    ["FENGGUANG", "580 2019"],
+                    ["FENGXING", "S560 2021"],
+                    ["FORTHING", "T5 2022"],
+                    ["FORTHING", "T5EVO 2024"]]
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener todas las diapositivas de vehículos
     const slides = document.querySelectorAll('.vehicle-slide');
     const slideContainer = document.getElementById('vehicle-showcase');
     let currentSlideIndex = 0;
+
+    const current_image = document.getElementById("track_it")
     
     // Crear controles de navegación
     createSlideControls();
     
     // Función para mostrar la siguiente diapositiva
     function showNextSlide() {
-        showSlide((currentSlideIndex + 1) % slides.length);
+        showSlide((currentSlideIndex + 1) % car_models.length);
     }
     
     // Función para mostrar la diapositiva anterior
     function showPrevSlide() {
-        showSlide((currentSlideIndex - 1 + slides.length) % slides.length);
+        showSlide((currentSlideIndex - 1 + car_models.length) % car_models.length);
     }
     
     // Función para mostrar una diapositiva específica
     function showSlide(index) {
-        // Ocultar la diapositiva actual
-        slides[currentSlideIndex].classList.remove('active');
+        // Transición del botón
         document.querySelector(`.slide-dot:nth-child(${currentSlideIndex + 1})`).classList.remove('active');
-        
-        // Actualizar el índice actual
+
+        // Índice interno: Ángulo del carro
+        internal_index = current_image.getAttribute("data-name2")
+
+        // Índice de vehículo: Modelo del carro
         currentSlideIndex = index;
-        
-        // Mostrar la nueva diapositiva
-        slides[currentSlideIndex].classList.add('active');
+
+        // Cambiar el índice interno
+        current_image.setAttribute("data-name", car_models[index])
+
+        // Cambiar la fuente de la imagen
+        current_image.src = "car_images/"+car_models[index]+"/"+internal_index+".png"
+
+        // Salida de consola DEBUG
+        console.log("Modelo: " + current_image.getAttribute("data-name") + "  Índice: " +index)
+
+        // Actualizar descripción del vehículo
+        const marca = document.getElementById("marca")
+        const modelo = document.getElementById("modelo")
+        marca.textContent = car_brands[index][0]
+        modelo.textContent = car_brands[index][1]
+
+        // Transición del botón
         document.querySelector(`.slide-dot:nth-child(${currentSlideIndex + 1})`).classList.add('active');
+
     }
     
     // Crear controles de navegación (puntos y flechas)
@@ -37,21 +67,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const dotsContainer = document.createElement('div');
         dotsContainer.className = 'slide-controls';
         
-        // Crear puntos para cada diapositiva
-        slides.forEach((_, index) => {
+        const NUM_DOTS = car_models.length; // Número constante de puntos
+
+        for (let i = 0; i < NUM_DOTS; i++) {
             const dot = document.createElement('div');
             dot.className = 'slide-dot';
-            if (index === 0) dot.classList.add('active');
-            
+            if (i === 0) dot.classList.add('active');
+
             // Evento para cambiar a la diapositiva correspondiente al punto
             dot.addEventListener('click', () => {
-                showSlide(index);
+                showSlide(i);
                 resetInterval();
             });
-            
+
             dotsContainer.appendChild(dot);
-        });
-        
+        }
+
         // Crear flechas de navegación
         const prevArrow = document.createElement('div');
         prevArrow.className = 'slide-arrow prev';
