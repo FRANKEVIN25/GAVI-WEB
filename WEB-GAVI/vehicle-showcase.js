@@ -1,64 +1,59 @@
-car_models = ["C35_Crew_Van_2012", "Fengguang_580_2019",
-              "Fengxing_S560_2021", "Forthing_T5_2022",
-              "Forthing_T5_EVO_2024"]
-
-const car_brands = [["DFSK", "GLORY C35 - C37"],
-                    ["FENGGUANG", "580 2019"],
-                    ["FENGXING", "S560 2021"],
-                    ["FORTHING", "T5 2022"],
-                    ["FORTHING", "T5EVO 2024"]]
-
-
 document.addEventListener('DOMContentLoaded', function() {
+
+    image_index = 0       // Posición inicial del puntero de imágenes
+
+    let tracking = false
+
+    start_x = 0     // Posición inicial del ratón al hacer clic
+
+
+    color = "Forthing_T5_2022"
+
+    image_array = [ // Las imágenes en sí
+        "1.png", "2.png", "3.png", "4.png",
+        "5.png", "6.png", "7.png", "8.png",
+        "9.png", "10.png", "11.png", "12.png",
+    ]
+
+    selected_image = image_array[image_index]
+
+
     // Obtener todas las diapositivas de vehículos
     const slides = document.querySelectorAll('.vehicle-slide');
     const slideContainer = document.getElementById('vehicle-showcase');
     let currentSlideIndex = 0;
-
-    const current_image = document.getElementById("track_it")
     
     // Crear controles de navegación
     createSlideControls();
     
     // Función para mostrar la siguiente diapositiva
     function showNextSlide() {
-        showSlide((currentSlideIndex + 1) % car_models.length);
+        showSlide((currentSlideIndex + 1) % slides.length);
     }
     
     // Función para mostrar la diapositiva anterior
     function showPrevSlide() {
-        showSlide((currentSlideIndex - 1 + car_models.length) % car_models.length);
+        showSlide((currentSlideIndex - 1 + slides.length) % slides.length);
     }
     
     // Función para mostrar una diapositiva específica
     function showSlide(index) {
-        // Transición del botón
+        // Ocultar la diapositiva actual
+        slides[currentSlideIndex].classList.remove('active');
         document.querySelector(`.slide-dot:nth-child(${currentSlideIndex + 1})`).classList.remove('active');
-
-        // Índice interno: Ángulo del carro
-        internal_index = current_image.getAttribute("data-name2")
-
-        // Índice de vehículo: Modelo del carro
+        
+        // Actualizar el índice actual
         currentSlideIndex = index;
-
-        // Cambiar el índice interno
-        current_image.setAttribute("data-name", car_models[index])
-
-        // Cambiar la fuente de la imagen
-        current_image.src = "car_images/"+car_models[index]+"/"+internal_index+".png"
-
-        // Salida de consola DEBUG
-        console.log("Modelo: " + current_image.getAttribute("data-name") + "  Índice: " +index)
-
-        // Actualizar descripción del vehículo
-        const marca = document.getElementById("marca")
-        const modelo = document.getElementById("modelo")
-        marca.textContent = car_brands[index][0]
-        modelo.textContent = car_brands[index][1]
-
-        // Transición del botón
+        
+        // Mostrar la nueva diapositiva
+        slides[currentSlideIndex].classList.add('active');
         document.querySelector(`.slide-dot:nth-child(${currentSlideIndex + 1})`).classList.add('active');
 
+
+        selected_image = image_array[image_index]     // Seleccionar y mostrar la imagen
+        active_image = Array.from(slides).find(slide => slide.classList.contains('active'));
+        active_image = active_image.querySelector("img")
+        active_image.src = active_image.src.replace(/[^/]+$/, selected_image)
     }
     
     // Crear controles de navegación (puntos y flechas)
@@ -67,22 +62,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const dotsContainer = document.createElement('div');
         dotsContainer.className = 'slide-controls';
         
-        const NUM_DOTS = car_models.length; // Número constante de puntos
-
-        for (let i = 0; i < NUM_DOTS; i++) {
+        // Crear puntos para cada diapositiva
+        slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.className = 'slide-dot';
-            if (i === 0) dot.classList.add('active');
-
+            if (index === 0) dot.classList.add('active');
+            
             // Evento para cambiar a la diapositiva correspondiente al punto
             dot.addEventListener('click', () => {
-                showSlide(i);
+                showSlide(index);
                 resetInterval();
             });
-
+            
             dotsContainer.appendChild(dot);
-        }
-
+        });
+        
         // Crear flechas de navegación
         const prevArrow = document.createElement('div');
         prevArrow.className = 'slide-arrow prev';
@@ -124,4 +118,58 @@ document.addEventListener('DOMContentLoaded', function() {
     slideContainer.addEventListener('mouseleave', function() {
         resetInterval();
     });
+
+    // TRACKER
+
+
+    active_image = slides[currentSlideIndex].querySelector("img")
+
+
+
+
+        // ---- Funciones principales ----
+    document.addEventListener("mousedown", (event) => {    // Evento de presionar el ratón
+        active_image = Array.from(slides).find(slide => slide.classList.contains('active'));
+        active_image = active_image.querySelector("img")
+        const rect = active_image.getBoundingClientRect()      // Obtener parámetros de la imagen colocada
+        start_x = event.clientX - rect.left             // Restar coordenadas del mouse con la coordenada de "offset"
+        tracking = true                                 // Seguir rastreando la posición del ratón
+
+        active_image.addEventListener("mousemove", (event) => {    // Evento de mover el ratón
+            active_image = Array.from(slides).find(slide => slide.classList.contains('active'));
+            active_image = active_image.querySelector("img")
+            if (tracking){
+                const rect = active_image.getBoundingClientRect()  // Actualizar parámetros de la imagen colocada
+                const x = event.clientX - rect.left         // Actualizar coordenadas
+
+                if (start_x + 20 < x){                      // Si se han movido 20 píxeles a la derecha
+                    start_x = x                             // Cambiar posición inicial
+                    image_index -= 1                              // Decrementar puntero de imágenes
+                    if(image_index <= -1){                        // Si es puntero indica un número menor al inicio colocar al final
+                        image_index = image_array.length - 1
+                    }
+                    selected_image = image_array[image_index]     // Seleccionar y mostrar la imagen
+                    active_image.src = active_image.src.replace(/[^/]+$/, selected_image)
+                }
+
+                if (start_x - 20 > x){                      // Si se han movido 20 píxeles a la izquierda
+                    start_x = x                             // Cambiar posición inicial
+                    image_index += 1                              // Incrementar puntero de imágenes
+                    if(image_index >= image_array.length){        // Si se sobrepasa el número de imágenes retornar al inicio
+                        image_index = 0
+                    }
+                    selected_image = image_array[image_index]     // Seleccionar y mostrar la imagen
+                    active_image.src = active_image.src.replace(/[^/]+$/, selected_image)
+                }
+            }
+        })
+    })
+    document.addEventListener("mouseup", () => {        // Evento de soldar el ratón
+        tracking = false                                // Dejar de rastrear el ratón
+    })
+
+    document.addEventListener("dragstart", (event) => {    // Para evitar arrastrar la imagen
+        event.preventDefault();                         // Hace más fácil hacer la animación
+    });
 });
+
