@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Variables para rotación de imágenes
-    image_index = 0                                             // Posición de la imagen
+    image_index = 11                                            // Posición de la imagen
     tracking = false                                            // Activar la rotación
     const image_array = ["1.png", "2.png", "3.png", "4.png",    // Nombres de los archivos del modelo
                          "5.png", "6.png", "7.png", "8.png",
