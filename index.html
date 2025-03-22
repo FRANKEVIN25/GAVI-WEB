@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autopartes XYZ - Repuestos y Autopartes Profesionales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <nav class="navbar">
+        <div class="logo-container" onclick="location.href='index.html'">
+            <img src="images/GAVILOGO.png" alt="Logo GAVI" class="nav-logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li class="dropdown">
+                <a href="subpaginas/nosotros.html">Quienes somos</a>
+            </li>
+            <li><a href="subpaginas/catalogo.html">Productos</a></li>
+            <li><a href="subpaginas/contacto.html">Contacto</a></li>
+        </ul>
+        <div class="nav-extras">
+            <a href="#" class="carrito"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="usuario"><i class="fas fa-user"></i></a>
+        </div>
+    </nav>
+    </div>
+
+    <!-- Sección de Vehículos Mejorada -->
+    <section id="vehicle-showcase" class="vehicle-showcase">
+        <div class="vehicle-slide active">
+            <img src="../images/T5EVO.png" alt="Toyota">
+            <div class="vehicle-overlay">
+                <h3>DONGFENG</h3>
+                <p>T5EVO</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/GLORY580.png" alt="DONGFENG">
+            <div class="vehicle-overlay">
+                <h3>DFSK</h3>
+                <p>GLORY560</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/GLORY560.png" alt="Camioneta">
+            <div class="vehicle-overlay">
+                <h3>DFSK</h3>
+                <p>GLORY560</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/DFSKD1.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>DFSK</h3>
+                <p>D1</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/GLORY_C35-37.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>DFSK</h3>
+                <p>GLORY C35 - C37</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/GLORY330.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>Alto Rendimiento</h3>
+                <p>Mejora el desempeño de tu auto con nuestros productos</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/DONGFENGS500.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>Alto Rendimiento</h3>
+                <p>Mejora el desempeño de tu auto con nuestros productos</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/SX5.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>Alto Rendimiento</h3>
+                <p>Mejora el desempeño de tu auto con nuestros productos</p>
+            </div>
+        </div>
+        <div class="vehicle-slide">
+            <img src="../images/SX6.png" alt="Deportivo">
+            <div class="vehicle-overlay">
+                <h3>Alto Rendimiento</h3>
+                <p>Mejora el desempeño de tu auto con nuestros productos</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Sección de Marcas Mejorada -->
+    <section id="marcas" class="brand-section">
+        <div class="brand-container">
+            <h2>Marcas con las que trabajamos</h2>
+            <div class="con-animate">
+                <div class="animate1">
+                    <div class="brand-logo"><img src="dfsk.png.png" alt="DFSK"></div>
+                    <div class="brand-logo"><img src="ford.png" alt="Ford"></div>
+                    <div class="brand-logo"><img src="chevrolet.png" alt="Chevrolet"></div>
+                    <div class="brand-logo"><img src="volkswagen.png" alt="Volkswagen"></div>
+                    <div class="brand-logo"><img src="nissan.png" alt="Nissan"></div>
+                    <div class="brand-logo"><img src="honda.png" alt="Honda"></div>
+                </div>
+                <div class="animate2">
+                    <div class="brand-logo"><img src="dfsk.png.png" alt="DFSK"></div>
+                    <div class="brand-logo"><img src="ford.png" alt="Ford"></div>
+                    <div class="brand-logo"><img src="chevrolet.png" alt="Chevrolet"></div>
+                    <div class="brand-logo"><img src="volkswagen.png" alt="Volkswagen"></div>
+                    <div class="brand-logo"><img src="nissan.png" alt="Nissan"></div>
+                    <div class="brand-logo"><img src="honda.png" alt="Honda"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--modelos y marcas -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .brand-section {
+            margin-bottom: 40px;
+        }
+        
+        .brand-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .model-card {
+            background-color: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #eaeaea;
+        }
+        
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        
+        .model-image-container {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+        
+        .model-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .model-card:hover .model-image {
+            transform: scale(1.1);
+        }
+        
+        .model-info {
+            padding: 15px;
+            background-color: #e02323;
+            height: 100px;
+        }
+        
+        .model-name {
+            font-size: 1.2rem;
+            color: #3b3939;
+            margin-bottom: 5px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .model-price {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .catalog-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #2e6da4;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .catalog-btn:hover {
+            background-color: #1e5687;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .models-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .brand-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .model-image-container {
+                height: 180px;
+            }
+            
+            .brand-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+
+    <section>
+        <div class="brands-container">
+            <!-- CHANGAN -->
+            <section class="brand-section">
+                <h2 class="brand-title">CHANGAN</h2>
+                <div class="models-grid">
+                    <!-- Modelo 1 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/SX5.png" alt="Alsvin" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">ALSVIN</h3>
+                            <a href='subpaginas/catalogo.html' class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 2 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/T5EVO.png" alt="Changan F70" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">F70</h3>
+                            <a href='subpaginas/catalogo.html' class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 3 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY580.png" alt="Changan Grand Super Van" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">GRAND SUPER VAN</h3>
+      
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 4 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Changan Grand Van Turismo" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">GRAND VAN TURISMO</h3>
+                  
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 5 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Changan Honor S" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">HONOR S</h3>
+     
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 6 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Changan CS15" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">CS15</h3>
+                      
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- TOYOTA -->
+            <section class="brand-section">
+                <h2 class="brand-title">TOYOTA</h2>
+                <div class="models-grid">
+                    <!-- Modelo 1 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Toyota Corolla" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">COROLLA</h3>
+                
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 2 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Toyota RAV4" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">RAV4</h3>
+             
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 3 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="images/GLORY560.png" alt="Toyota Hilux" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">HILUX</h3>
+    
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- NISSAN -->
+            <section class="brand-section">
+                <h2 class="brand-title">NISSAN</h2>
+                <div class="models-grid">
+                    <!-- Modelo 1 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="/api/placeholder/350/200" alt="Nissan Sentra" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">SENTRA</h3>
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modelo 2 -->
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="/api/placeholder/350/200" alt="Nissan Frontier" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">FRONTIER</h3>
+  
+                            <a href="#" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+
+                    <div class="model-card">
+                        <div class="model-image-container">
+                            <img src="/api/placeholder/350/200" alt="Nissan Frontier" class="model-image">
+                        </div>
+                        <div class="model-info">
+                            <h3 class="model-name">FRONTIER</h3>
+                            <a href="" class="catalog-btn">Ir al catálogo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Autopartes XYZ</h4>
+                <p>Soluciones integrales para tu vehículo</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#Nosotros">Nosotros</a></li>
+                    <li><a href="#Productos">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <p>Teléfono: (555) 123-4567</p>
+                <p>Email: contacto@autopartesxyz.com</p>
+                <p>Dirección: Av. Autopartes 123, Ciudad</p>
+            </div>
+            <div class="footer-column">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GAVI PERÚ. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para el funcionamiento del sitio -->
+    <script src="vehicle-showcase.js"></script>
+    <script>
+        // Script para menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Interactividad para categorías
+            const btnVerMas = document.querySelectorAll('.btn-ver-mas');
+            btnVerMas.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const categoria = this.closest('.category-item').classList[1];
+                    window.location.href = '#' + categoria;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
